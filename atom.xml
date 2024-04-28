@@ -7,7 +7,7 @@
  <link href="http://bithiah.koshy.au/atom.xml" rel="self"/>
  <link href="http://bithiah.koshy.au/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://tom.preston-werner.com/</id>
+ <id>http://bithiah.koshy.au/</id>
  <author>
    <name>Bithiah Koshy</name>
  </author>
