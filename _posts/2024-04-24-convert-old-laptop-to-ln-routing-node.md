@@ -6,6 +6,8 @@ title: Converting an Old Laptop into a Routing Node: An Introduction
 {{ page.title }}
 ================
 
+<p class="meta">24 Apr 2024</p>
+
 If it only takes simple, cheap hardware with the required space and a stable internet connection to run a Bitcoin and Lightning full-node, we can convert consumer hardware, such as an old laptop, into a [Lightning routing node](https://lightning.engineering/posts/2018-05-23-routing/).
 
 There are certain [requirements](https://docs.lightning.engineering/lightning-network-tools/lnd/optimal-configuration-of-a-routing-node#docs-internal-guid-aaf6ad01-7fff-66f0-2a47-ffe8f9f7f8a5) your laptop needs to meet. It should have a decent amount of RAM (at least 4GB) and a relatively modern processor (64-bit architecture). Ensure there's storage space to install and run the software for routing transactions. While ECC memory support and redundancy features like RAID arrays are desirable (in case of memory corruption), they are not needed to get started.
