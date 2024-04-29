@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basics of Mining
+title: Converting an Old Laptop into a Routing Node
 ---
 
 {{ page.title }}
