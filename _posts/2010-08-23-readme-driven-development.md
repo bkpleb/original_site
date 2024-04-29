@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Readme Driven Development
+title: Converting an Old Laptop into a Routing Node: An Introduction
 ---
 
 {{ page.title }}
@@ -8,30 +8,26 @@ title: Readme Driven Development
 
 <p class="meta">23 August 2010 - San Francisco</p>
 
-I hear a lot of talk these days about TDD and BDD and Extreme Programming and SCRUM and stand up meetings and all kinds of methodologies and techniques for developing better software, but it's all irrelevant unless the software we're building meets the needs of those that are using it. Let me put that another way. A perfect implementation of the wrong specification is worthless. By the same principle a beautifully crafted library with no documentation is also damn near worthless. If your software solves the wrong problem or nobody can figure out how to use it, there's something very bad going on.
+If it only takes simple, cheap hardware with the required space and a stable internet connection to run a Bitcoin and Lightning full-node, we can convert consumer hardware, such as an old laptop, into a [Lightning routing node](https://lightning.engineering/posts/2018-05-23-routing/).
 
-Fine. So how do we solve this problem? It's easier than you think, and it's important enough to warrant its very own paragraph.
+There are certain [requirements](https://docs.lightning.engineering/lightning-network-tools/lnd/optimal-configuration-of-a-routing-node#docs-internal-guid-aaf6ad01-7fff-66f0-2a47-ffe8f9f7f8a5) your laptop needs to meet. It should have a decent amount of RAM (at least 4GB) and a relatively modern processor (64-bit architecture). Ensure there's storage space to install and run the software for routing transactions. While ECC memory support and redundancy features like RAID arrays are desirable (in case of memory corruption), they are not needed to get started.
 
-Write your Readme first.
+Next, ensure you have a reliable internet connection. To ensure effective payment routing, routing nodes must have a constant and fast internet connection. For stability, it is highly preferred to use an Ethernet connection (old MacBooks may require adapters).
 
-First. As in, before you write any code or tests or behaviors or stories or ANYTHING. I know, I know, we're programmers, dammit, not tech writers! But that's where you're wrong. Writing a Readme is absolutely essential to writing good software. Until you've written about your software, you have no idea what you'll be coding. Between The Great Backlash Against Waterfall Design and The Supreme Acceptance of Agile Development, something was lost. Don't get me wrong, waterfall design takes things way too far. Huge systems specified in minute detail end up being the WRONG systems specified in minute detail. We were right to strike it down. But what took its place is too far in the other direction. Now we have projects with short, badly written, or entirely missing documentation. Some projects don't even have a Readme!
+In terms of technical expertise, operating a routing node requires some level of technical knowledge. Familiarity with CLI commands and understanding of networking concepts will be beneficial. You'll also need to be comfortable installing and configuring software on your laptop.
 
-This is not acceptable. There must be some middle ground between reams of technical specifications and no specifications at all. And in fact there is. That middle ground is the humble Readme.
+Below are the steps needed to convert your old laptop into a routing node:
 
-It's important to distinguish Readme Driven Development from Documentation Driven Development. RDD could be considered a subset or limited version of DDD. By restricting your design documentation to a single file that is intended to be read as an introduction to your software, RDD keeps you safe from DDD-turned-waterfall syndrome by punishing you for lengthy or overprecise specification. At the same time, it rewards you for keeping libraries small and modularized. These simple reinforcements go a long way towards driving your project in the right direction without a lot of process to ensure you do the right thing.
+1.  Choose Lightning Network Implementation: Research and select a Lightning Network implementation that suits your preferences and needs. Popular options include [LND](https://github.com/lightningnetwork/lnd), [Core Lightning](https://github.com/ElementsProject/lightning), and [eclair](https://github.com/ACINQ/eclair). These implementations fully or partially conform to the [BOLTs](https://github.com/lightning/bolts), which makes them interoperable (different implementations can interact with each other).
 
-By writing your Readme first you give yourself some pretty significant advantages:
+2.  Installation: Follow the installation instructions provided by your chosen LN implementation. This involves downloading the software package, installing dependencies, and configuring the software to run on your laptop. View [documentation](https://docs.lightning.engineering/lightning-network-tools/lnd/run-lnd) to guide you through the installation and configuration process.
 
-* Most importantly, you're giving yourself a chance to think through the project without the overhead of having to change code every time you change your mind about how something should be organized or what should be included in the Public API. Remember that feeling when you first started writing automated code tests and realized that you caught all kinds of errors that would have otherwise snuck into your codebase? That's the exact same feeling you'll have if you write the Readme for your project before you write the actual code.
+1.  Set Up a Lightning Wallet: Choose a Lightning wallet, like [BlueWallet](https://bluewallet.io/lndhub/), that is compatible with your chosen LN implementation and preferences. Follow the instructions provided by the wallet provider to set up your wallet and connect it to your routing node. This will allow you to send and receive Lightning payments and manage your funds within the network.
 
-* As a byproduct of writing a Readme in order to know what you need to implement, you'll have a very nice piece of documentation sitting in front of you. You'll also find that it's much easier to write this document at the beginning of the project when your excitement and motivation are at their highest. Retroactively writing a Readme is an absolute drag, and you're sure to miss all kinds of important details when you do so.
+1.  Open Channels: Prior to [opening channels](https://docs.lightning.engineering/lightning-network-tools/lnd/first-steps-with-lnd#docs-internal-guid-cc7ef0e6-7fff-09d1-5425-d232ccb1735f) with other nodes on the network to start routing payments, [allocate funds](https://docs.lightning.engineering/lightning-network-tools/lnd/first-steps-with-lnd#docs-internal-guid-8b3e92ed-7fff-7a3c-bb3f-c59cbd3f45db) to your node. Determine which nodes you want to connect to based on factors like [connectivity, fees, and reputation](https://docs.lightning.engineering/the-lightning-network/the-gossip-network/identify-good-peers). Tools such as [1ML](https://1ml.com/) can also help.
 
-* If you're working with a team of developers you get even more mileage out of your Readme. If everyone else on the team has access to this information before you've completed the project, then they can confidently start work on other projects that will interface with your code. Without any sort of defined interface, you have to code in serial or face reimplementing large portions of code.
+1.  Monitor and Maintain: Regularly [monitor](https://terminal.lightning.engineering/) your routing node for performance issues as well as connectivity problems. Though rare, be mindful of potential security risks by keeping up to date with the [latest patches](https://github.com/lightningnetwork/lnd/releases) and security fixes.
 
-* It's a lot simpler to have a discussion based on something written down. It's easy to talk endlessly and in circles about a problem if nothing is ever put to text. The simple act of writing down a proposed solution means everyone has a concrete idea that can be argued about and iterated upon.
-
-Consider the process of writing the Readme for your project as the true act of creation. This is where all your brilliant ideas should be expressed. This document should stand on its own as a testament to your creativity and expressiveness. The Readme should be the single most important document in your codebase; writing it first is the proper thing to do.
-
---
+Opening and maintaining channels with adequate liquidity is key to becoming a successful routing node. By following these steps and [maintaining your routing node](https://docs.lightning.engineering/the-lightning-network/multihop-payments/what-makes-a-good-routing-node), even an old laptop can actively contribute to the Lightning Network while making potential earnings from routing fees.
 
 [Discuss this post on Hacker News](http://news.ycombinator.com/item?id=1627246)
