@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TomDoc - Reasonable Ruby Documentation
+title: Converting an Old Laptop into a Routing Node: An Introduction
 ---
 
 {{ page.title }}
